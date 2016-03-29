@@ -1,0 +1,45 @@
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.js"></script>
+
+<div class="">
+
+</div>
+
+<script>
+  var results = [
+    {"las vegas": 2},
+    {"los angeles": 10},
+    {"sf": 5}
+  ]
+
+  var arr = [];
+  for (var i = 0; i < results.length; i++) {
+    for (property in results[i]) {
+      if (results[i].hasOwnProperty(property)) {
+        arr.push([property, results[i][property]])
+      }
+    }
+  }
+
+  arr = arr.sort(function(a, b) {return b[1] - a[1]})
+
+  var newResults = [];
+
+  for (var j = 0; j < arr.length; j++) {
+    var object = new Object();
+    object[arr[j][0]] = arr[j][1];
+    newResults.push(object);
+  };
+
+  console.log(newResults)
+  var $ul = $("<ul></ul>")
+  for (var i = 0; i < results.length; i++) {
+    var $li = $("<li></li>");
+    for (property in newResults[i]) {
+      if (newResults[i].hasOwnProperty(property)) {
+        $li.text(property + " " + newResults[i][property])
+      }
+    }
+    $ul.append($li)
+  }
+  $("div").append($ul)
+</script>

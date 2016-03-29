@@ -1,0 +1,30 @@
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.js"></script>
+
+<ul class="unordered-list"></ul>
+
+<form class="hello" action="index.html" method="post">
+  <input type="text" class="input-submit" name="name" value="">
+  <br>
+  <input type="submit" value="Submit">
+</form>
+
+<script type="text/javascript">
+  $("form.hello").on("submit", function(event) {
+    event.preventDefault();
+
+    var $input = $(".input-submit");
+    var submission = $input.val();
+    $input.val("");
+
+    var $listItem = $("<li></li>");
+    $listItem.text(submission);
+    $("ul").append($listItem);
+  })
+
+  $("ul.unordered-list").on("mouseover", function(event) {
+    var $ul = $(event.currentTarget);
+      alert($(event.target).text());
+    // if ($ul.find("li").is(event.target)) {
+    // };
+  })
+</script>

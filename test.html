@@ -1,0 +1,14 @@
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.js"></script>
+
+<ul></ul>
+
+<script type="text/javascript">
+  var $ul = $("ul")
+  var $li = $("<li></li>");
+  $li.text("hello");
+  $ul.append($li);
+
+  var $anotherLi = $("<li></li>");
+  $anotherLi.html("<div>what</div>");
+  $ul.append($anotherLi);
+</script>
